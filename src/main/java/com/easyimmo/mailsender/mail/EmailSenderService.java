@@ -9,21 +9,23 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.easyimmo.mailsender.mail.dto.Email;
+
 @Service
 public class EmailSenderService {
 
     @Autowired
     private JavaMailSender mailSender;
 
-    public void sendMail() throws MessagingException {
+    public void sendMail(Email email) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message);
-        mimeMessageHelper.setText("this is text");
-        mimeMessageHelper.setSubject("this is subject");
-        mimeMessageHelper.setFrom("deribreuxachille0@gmail.com ");
-        mimeMessageHelper.setTo("achille7780@gmail.com");
-        mimeMessageHelper.setReplyTo("achille@deribreux.be");
-        message.setRecipients(Message.RecipientType.TO,"aditsolutions.be@gmail.com");
+        mimeMessageHelper.setText(email.getText());
+        mimeMessageHelper.setSubject(email.getSubject());
+        mimeMessageHelper.setFrom(email.getFrom());
+        mimeMessageHelper.setTo(email.getTo());
+        mimeMessageHelper.setReplyTo(email.getFrom());
+        message.setRecipients(Message.RecipientType.TO,email.getTo());
         mailSender.send(message);
     }
 }
