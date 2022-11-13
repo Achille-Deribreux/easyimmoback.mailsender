@@ -7,6 +7,16 @@ public class Email {
     private String subject;
     private String text;
 
+    public Email() {
+    }
+
+    public Email(String to, String from, String subject, String text) {
+        this.to = to;
+        this.from = from;
+        this.subject = subject;
+        this.text = text;
+    }
+
     public String getTo() {
         return to;
     }
