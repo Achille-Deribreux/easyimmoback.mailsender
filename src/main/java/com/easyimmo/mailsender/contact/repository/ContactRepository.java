@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.contact;
+package com.easyimmo.mailsender.contact.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

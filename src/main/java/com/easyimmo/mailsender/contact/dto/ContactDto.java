@@ -1,38 +1,20 @@
-package com.easyimmo.mailsender.contact.model;
+package com.easyimmo.mailsender.contact.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "contact")
-public class Contact {
+public class ContactDto {
 
-    @Id
-    @Column(name = "id")
     private Integer id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "function")
     private String function;
-
-    @Column(name = "emailAdress")
     private String emailAdress;
 
-    public Contact() {
+    public ContactDto() {
     }
 
-    public Contact(Integer id, String name, String function, String emailAdress) {
+    public ContactDto(Integer id, String name, String function, String emailAdress) {
         this.id = id;
-        this.name = name;
-        this.function = function;
-        this.emailAdress = emailAdress;
-    }
-
-    public Contact(String name, String function, String emailAdress) {
         this.name = name;
         this.function = function;
         this.emailAdress = emailAdress;
