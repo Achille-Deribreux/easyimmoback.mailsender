@@ -4,8 +4,12 @@ import com.easyimmo.mailsender.autoemail.dto.AutoEmailDto;
 import com.easyimmo.mailsender.autoemail.model.AutoEmail;
 import com.easyimmo.mailsender.contact.dto.ContactDto;
 import com.easyimmo.mailsender.contact.model.Contact;
+import com.easyimmo.mailsender.emailtemplate.dto.EmailTemplateDto;
+import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;
 
 public class Converter {
+
+    private Converter() {}
 
     public static Contact convertToContact(ContactDto contactDto){
         return new Contact(
@@ -42,6 +46,24 @@ public class Converter {
                 autoEmailDto.getEmailTemplate(),
                 convertToContact(autoEmailDto.getContact()),
                 autoEmailDto.getPropertyId()
+        );
+    }
+
+    public static EmailTemplateDto convertToEmailTemplateDto(EmailTemplate emailTemplate){
+        return new EmailTemplateDto(
+                emailTemplate.getId(),
+                emailTemplate.getSubject(),
+                emailTemplate.getContent(),
+                emailTemplate.getUserId()
+        );
+    }
+
+    public static EmailTemplate convertToEmailTemplate(EmailTemplateDto emailTemplateDto){
+        return new EmailTemplate(
+                emailTemplateDto.getId(),
+                emailTemplateDto.getSubject(),
+                emailTemplateDto.getContent(),
+                emailTemplateDto.getUserId()
         );
     }
 }
