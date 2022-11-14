@@ -1,38 +1,20 @@
-package com.easyimmo.mailsender.autoemail.model;
+package com.easyimmo.mailsender.autoemail.dto;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
+import com.easyimmo.mailsender.contact.dto.ContactDto;
 import com.easyimmo.mailsender.contact.model.Contact;
 import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;
 
-@Entity
-public class AutoEmail {
+import javax.persistence.*;
 
-    @Id
-    @Column(name= "id")
+public class AutoEmailDto {
+
     private Integer id;
-
-    @Column(name="fromAdress")
     private String fromAdress;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="emailTemplate_id", referencedColumnName = "id")
     private EmailTemplate emailTemplate;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="contact_id", referencedColumnName = "id")
-    private Contact contact;
-
-    @Column(name = "property_id")
+    private ContactDto contact;
     private Integer propertyId;
 
-    public AutoEmail(Integer id, String fromAdress, EmailTemplate emailTemplate, Contact contact, Integer propertyId) {
+    public AutoEmailDto(Integer id, String fromAdress, EmailTemplate emailTemplate, ContactDto contact, Integer propertyId) {
         this.id = id;
         this.fromAdress = fromAdress;
         this.emailTemplate = emailTemplate;
@@ -64,11 +46,11 @@ public class AutoEmail {
         this.emailTemplate = emailTemplate;
     }
 
-    public Contact getContact() {
+    public ContactDto getContact() {
         return contact;
     }
 
-    public void setContact(Contact contact) {
+    public void setContact(ContactDto contact) {
         this.contact = contact;
     }
 
