@@ -10,14 +10,17 @@ public class ContactDto {
     private String function;
     private String emailAdress;
 
+    private Integer userId;
+
     public ContactDto() {
     }
 
-    public ContactDto(Integer id, String name, String function, String emailAdress) {
+    public ContactDto(Integer id, String name, String function, String emailAdress, Integer userId) {
         this.id = id;
         this.name = name;
         this.function = function;
         this.emailAdress = emailAdress;
+        this.userId = userId;
     }
 
     public Integer getId() {
@@ -50,5 +53,13 @@ public class ContactDto {
 
     public void setEmailAdress(String emailAdress) {
         this.emailAdress = emailAdress;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

@@ -32,12 +32,17 @@ public class AutoEmail {
     @Column(name = "property_id")
     private Integer propertyId;
 
-    public AutoEmail(Integer id, String fromAdress, EmailTemplate emailTemplate, Contact contact, Integer propertyId) {
+    @Column(name = "userId")
+    private Integer userId;
+
+
+    public AutoEmail(Integer id, String fromAdress, EmailTemplate emailTemplate, Contact contact, Integer propertyId,Integer userId) {
         this.id = id;
         this.fromAdress = fromAdress;
         this.emailTemplate = emailTemplate;
         this.contact = contact;
         this.propertyId = propertyId;
+        this.userId = userId;
     }
 
     public Integer getId() {
@@ -78,5 +83,13 @@ public class AutoEmail {
 
     public void setPropertyId(Integer propertyId) {
         this.propertyId = propertyId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

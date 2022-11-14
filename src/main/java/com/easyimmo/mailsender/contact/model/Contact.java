@@ -22,20 +22,19 @@ public class Contact {
     @Column(name = "emailAdress")
     private String emailAdress;
 
+    @Column(name = "userId")
+    private Integer userId;
+
+
     public Contact() {
     }
 
-    public Contact(Integer id, String name, String function, String emailAdress) {
+    public Contact(Integer id, String name, String function, String emailAdress, Integer userId) {
         this.id = id;
         this.name = name;
         this.function = function;
         this.emailAdress = emailAdress;
-    }
-
-    public Contact(String name, String function, String emailAdress) {
-        this.name = name;
-        this.function = function;
-        this.emailAdress = emailAdress;
+        this.userId = userId;
     }
 
     public Integer getId() {
@@ -68,5 +67,13 @@ public class Contact {
 
     public void setEmailAdress(String emailAdress) {
         this.emailAdress = emailAdress;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

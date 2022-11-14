@@ -16,7 +16,8 @@ public class Converter {
                 contactDto.getId(),
                 contactDto.getName(),
                 contactDto.getFunction(),
-                contactDto.getEmailAdress()
+                contactDto.getEmailAdress(),
+                contactDto.getUserId()
         );
     }
 
@@ -25,7 +26,8 @@ public class Converter {
                 contact.getId(),
                 contact.getName(),
                 contact.getFunction(),
-                contact.getEmailAdress()
+                contact.getEmailAdress(),
+                contact.getUserId()
         );
     }
 
@@ -35,7 +37,8 @@ public class Converter {
                 autoEmail.getFromAdress(),
                 autoEmail.getEmailTemplate(),
                 convertToContactDto(autoEmail.getContact()),
-                autoEmail.getPropertyId()
+                autoEmail.getPropertyId(),
+                autoEmail.getUserId()
         );
     }
 
@@ -45,7 +48,8 @@ public class Converter {
                 autoEmailDto.getFromAdress(),
                 autoEmailDto.getEmailTemplate(),
                 convertToContact(autoEmailDto.getContact()),
-                autoEmailDto.getPropertyId()
+                autoEmailDto.getPropertyId(),
+                autoEmailDto.getUserId()
         );
     }
 
