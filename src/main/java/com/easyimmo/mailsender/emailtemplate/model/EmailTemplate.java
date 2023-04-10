@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "emailtemplate")
+@Table(name = "emailtemplate", schema = "MAILSENDER")
 public class EmailTemplate {
 
     @Id

@@ -7,11 +7,13 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.easyimmo.mailsender.contact.model.Contact;
 import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;
 
 @Entity
+@Table(name = "autoemail", schema = "MAILSENDER")
 public class AutoEmail {
 
     @Id
@@ -35,8 +37,10 @@ public class AutoEmail {
     @Column(name = "userId")
     private Integer userId;
 
+    public AutoEmail() {
+    }
 
-    public AutoEmail(Integer id, String fromAdress, EmailTemplate emailTemplate, Contact contact, Integer propertyId,Integer userId) {
+    public AutoEmail(Integer id, String fromAdress, EmailTemplate emailTemplate, Contact contact, Integer propertyId, Integer userId) {
         this.id = id;
         this.fromAdress = fromAdress;
         this.emailTemplate = emailTemplate;

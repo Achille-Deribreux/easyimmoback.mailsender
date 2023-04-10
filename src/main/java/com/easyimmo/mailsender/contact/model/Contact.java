@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "contact")
+@Table(name = "contact", schema = "MAILSENDER")
 public class Contact {
 
     @Id
@@ -16,8 +16,8 @@ public class Contact {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "function")
-    private String function;
+    @Column(name = "role")
+    private String role;
 
     @Column(name = "emailAdress")
     private String emailAdress;
@@ -29,10 +29,10 @@ public class Contact {
     public Contact() {
     }
 
-    public Contact(Integer id, String name, String function, String emailAdress, Integer userId) {
+    public Contact(Integer id, String name, String role, String emailAdress, Integer userId) {
         this.id = id;
         this.name = name;
-        this.function = function;
+        this.role = role;
         this.emailAdress = emailAdress;
         this.userId = userId;
     }
@@ -53,12 +53,12 @@ public class Contact {
         this.name = name;
     }
 
-    public String getFunction() {
-        return function;
+    public String getRole() {
+        return role;
     }
 
-    public void setFunction(String function) {
-        this.function = function;
+    public void setRole(String function) {
+        this.role = function;
     }
 
     public String getEmailAdress() {

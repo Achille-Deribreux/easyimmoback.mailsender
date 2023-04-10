@@ -25,7 +25,7 @@ public class Converter {
         return new ContactDto(
                 contact.getId(),
                 contact.getName(),
-                contact.getFunction(),
+                contact.getRole(),
                 contact.getEmailAdress(),
                 contact.getUserId()
         );
