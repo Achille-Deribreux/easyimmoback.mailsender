@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.mail;
+package com.easyimmo.mailsender.infra.config;
 
 import java.util.Properties;
 

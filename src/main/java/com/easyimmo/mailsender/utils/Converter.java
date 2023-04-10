@@ -1,7 +1,7 @@
 package com.easyimmo.mailsender.utils;
 
-import com.easyimmo.mailsender.autoemail.dto.AutoEmailDto;
-import com.easyimmo.mailsender.autoemail.model.AutoEmail;
+import com.easyimmo.mailsender.presentation.mail.AutoEmailDto;
+import com.easyimmo.mailsender.infra.mail.AutoEmailEntity;
 import com.easyimmo.mailsender.contact.dto.ContactDto;
 import com.easyimmo.mailsender.contact.model.Contact;
 import com.easyimmo.mailsender.emailtemplate.dto.EmailTemplateDto;
@@ -31,24 +31,22 @@ public class Converter {
         );
     }
 
-    public static AutoEmailDto convertToAutoEmailDto(AutoEmail autoEmail){
+    public static AutoEmailDto convertToAutoEmailDto(AutoEmailEntity autoEmailEntity){
         return new AutoEmailDto(
-                autoEmail.getId(),
-                autoEmail.getFromAdress(),
-                autoEmail.getEmailTemplate(),
-                convertToContactDto(autoEmail.getContact()),
-                autoEmail.getPropertyId(),
-                autoEmail.getUserId()
+                autoEmailEntity.getId(),
+                autoEmailEntity.getFromAdress(),
+                autoEmailEntity.getEmailTemplate(),
+                convertToContactDto(autoEmailEntity.getContact()),
+                autoEmailEntity.getUserId()
         );
     }
 
-    public static AutoEmail convertToAutoEmail(AutoEmailDto autoEmailDto){
-        return new AutoEmail(
+    public static AutoEmailEntity convertToAutoEmail(AutoEmailDto autoEmailDto){
+        return new AutoEmailEntity(
                 autoEmailDto.getId(),
                 autoEmailDto.getFromAdress(),
                 autoEmailDto.getEmailTemplate(),
                 convertToContact(autoEmailDto.getContact()),
-                autoEmailDto.getPropertyId(),
                 autoEmailDto.getUserId()
         );
     }

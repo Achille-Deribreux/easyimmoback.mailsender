@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.autoemail.model;
+package com.easyimmo.mailsender.infra.mail;
 
 
 import javax.persistence.Column;
@@ -14,7 +14,7 @@ import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;
 
 @Entity
 @Table(name = "autoemail", schema = "MAILSENDER")
-public class AutoEmail {
+public class AutoEmailEntity {
 
     @Id
     @Column(name= "id")
@@ -31,21 +31,17 @@ public class AutoEmail {
     @JoinColumn(name="contact_id", referencedColumnName = "id")
     private Contact contact;
 
-    @Column(name = "property_id")
-    private Integer propertyId;
-
     @Column(name = "userId")
     private Integer userId;
 
-    public AutoEmail() {
+    public AutoEmailEntity() {
     }
 
-    public AutoEmail(Integer id, String fromAdress, EmailTemplate emailTemplate, Contact contact, Integer propertyId, Integer userId) {
+    public AutoEmailEntity(Integer id, String fromAdress, EmailTemplate emailTemplate, Contact contact, Integer userId) {
         this.id = id;
         this.fromAdress = fromAdress;
         this.emailTemplate = emailTemplate;
         this.contact = contact;
-        this.propertyId = propertyId;
         this.userId = userId;
     }
 
@@ -79,14 +75,6 @@ public class AutoEmail {
 
     public void setContact(Contact contact) {
         this.contact = contact;
-    }
-
-    public Integer getPropertyId() {
-        return propertyId;
-    }
-
-    public void setPropertyId(Integer propertyId) {
-        this.propertyId = propertyId;
     }
 
     public Integer getUserId() {

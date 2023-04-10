@@ -1,16 +1,16 @@
-package com.easyimmo.mailsender.mail.dto;
+package com.easyimmo.mailsender.presentation.mail;
 
-public class Email {
+public class EmailDto {
 
     private String to;
     private String from;
     private String subject;
     private String text;
 
-    public Email() {
+    public EmailDto() {
     }
 
-    public Email(String to, String from, String subject, String text) {
+    public EmailDto(String to, String from, String subject, String text) {
         this.to = to;
         this.from = from;
         this.subject = subject;

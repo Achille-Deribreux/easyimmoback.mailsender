@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.autoemail.dto;
+package com.easyimmo.mailsender.presentation.mail;
 
 import com.easyimmo.mailsender.contact.dto.ContactDto;
 import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;
@@ -9,15 +9,13 @@ public class AutoEmailDto {
     private String fromAdress;
     private EmailTemplate emailTemplate;
     private ContactDto contact;
-    private Integer propertyId;
     private Integer userId;
 
-    public AutoEmailDto(Integer id, String fromAdress, EmailTemplate emailTemplate, ContactDto contact, Integer propertyId, Integer userId) {
+    public AutoEmailDto(Integer id, String fromAdress, EmailTemplate emailTemplate, ContactDto contact, Integer userId) {
         this.id = id;
         this.fromAdress = fromAdress;
         this.emailTemplate = emailTemplate;
         this.contact = contact;
-        this.propertyId = propertyId;
         this.userId = userId;
     }
 
@@ -51,14 +49,6 @@ public class AutoEmailDto {
 
     public void setContact(ContactDto contact) {
         this.contact = contact;
-    }
-
-    public Integer getPropertyId() {
-        return propertyId;
-    }
-
-    public void setPropertyId(Integer propertyId) {
-        this.propertyId = propertyId;
     }
 
     public Integer getUserId() {

@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.config;
+package com.easyimmo.mailsender.infra.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
