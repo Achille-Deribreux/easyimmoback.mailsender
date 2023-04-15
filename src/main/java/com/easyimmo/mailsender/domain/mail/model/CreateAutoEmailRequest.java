@@ -1,6 +1,6 @@
-package com.easyimmo.mailsender.domain.mail;
+package com.easyimmo.mailsender.domain.mail.model;
 
-public class AutoEmailBody {
+public class CreateAutoEmailRequest {
 
     private String fromAdress;
     private Integer emailTemplateId;
@@ -57,13 +57,13 @@ public class AutoEmailBody {
             return this;
         }
 
-        public AutoEmailBody build() {
-            AutoEmailBody autoEmailBody = new AutoEmailBody();
-            autoEmailBody.emailTemplateId = this.emailTemplateId;
-            autoEmailBody.fromAdress = this.fromAdress;
-            autoEmailBody.emailAdress = this.emailAdress;
-            autoEmailBody.userId = this.userId;
-            return autoEmailBody;
+        public CreateAutoEmailRequest build() {
+            CreateAutoEmailRequest createAutoEmailRequest = new CreateAutoEmailRequest();
+            createAutoEmailRequest.emailTemplateId = this.emailTemplateId;
+            createAutoEmailRequest.fromAdress = this.fromAdress;
+            createAutoEmailRequest.emailAdress = this.emailAdress;
+            createAutoEmailRequest.userId = this.userId;
+            return createAutoEmailRequest;
         }
     }
 }

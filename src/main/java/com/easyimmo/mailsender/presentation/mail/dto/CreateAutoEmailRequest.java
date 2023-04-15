@@ -1,6 +1,6 @@
-package com.easyimmo.mailsender.presentation.mail;
+package com.easyimmo.mailsender.presentation.mail.dto;
 
-public class AutoEmailBodyDto {
+public class CreateAutoEmailRequest {
     private String fromAdress;
     private Integer emailTemplateId;
     private String emailAdress;

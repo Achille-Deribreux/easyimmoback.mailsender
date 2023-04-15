@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.infra.mail;
+package com.easyimmo.mailsender.infra.mail.entity;
 
 
 import javax.persistence.Column;

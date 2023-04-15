@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.domain.mail;
+package com.easyimmo.mailsender.domain.mail.model;
 
 public class Email {
 

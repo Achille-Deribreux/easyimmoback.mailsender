@@ -2,29 +2,32 @@ package com.easyimmo.mailsender.domain.mail;
 
 import org.springframework.stereotype.Service;
 
-import com.easyimmo.mailsender.infra.mail.EmailSenderAdapter;
+import com.easyimmo.mailsender.domain.mail.model.AutoEmail;
+import com.easyimmo.mailsender.domain.mail.model.CreateAutoEmailRequest;
+import com.easyimmo.mailsender.domain.mail.model.Email;
+import com.easyimmo.mailsender.infra.mail.EmailAdapter;
 
 @Service
 public class DefaultEmailService implements EmailService {
 
-    private final EmailSenderAdapter emailSenderAdapter;
+    private final EmailAdapter emailAdapter;
 
-    public DefaultEmailService(EmailSenderAdapter emailSenderAdapter) {
-        this.emailSenderAdapter = emailSenderAdapter;
+    public DefaultEmailService(EmailAdapter emailAdapter) {
+        this.emailAdapter = emailAdapter;
     }
 
     @Override
     public void sendEmail(Email email) {
-        emailSenderAdapter.sendMail(email);
+        emailAdapter.sendMail(email);
     }
 
     @Override
     public void sendAutoEmail(AutoEmail autoEmail) {
-        emailSenderAdapter.sendAutoEmail(autoEmail);
+        emailAdapter.sendAutoEmail(autoEmail);
     }
 
     @Override
-    public void addAutoEmail(AutoEmailBody autoEmailBody) {
+    public void addAutoEmail(CreateAutoEmailRequest createAutoEmailRequest) {
         //TODO IMPLEMENT
     }
 }

@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.presentation.mail;
+package com.easyimmo.mailsender.presentation.mail.dto;
 
 import com.easyimmo.mailsender.contact.dto.ContactDto;
 import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;

@@ -8,7 +8,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import com.easyimmo.mailsender.presentation.mail.EmailDto;
+import com.easyimmo.mailsender.infra.mail.entity.EmailEntity;
 
 @Service
 public class EmailSender {

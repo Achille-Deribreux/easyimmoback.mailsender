@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.presentation.mail;
+package com.easyimmo.mailsender.presentation.mail.dto;
 
 public class EmailDto {
 

@@ -1,7 +1,7 @@
 package com.easyimmo.mailsender.utils;
 
-import com.easyimmo.mailsender.presentation.mail.AutoEmailDto;
-import com.easyimmo.mailsender.infra.mail.AutoEmailEntity;
+import com.easyimmo.mailsender.presentation.mail.dto.AutoEmailDto;
+import com.easyimmo.mailsender.infra.mail.entity.AutoEmailEntity;
 import com.easyimmo.mailsender.contact.dto.ContactDto;
 import com.easyimmo.mailsender.contact.model.Contact;
 import com.easyimmo.mailsender.emailtemplate.dto.EmailTemplateDto;
