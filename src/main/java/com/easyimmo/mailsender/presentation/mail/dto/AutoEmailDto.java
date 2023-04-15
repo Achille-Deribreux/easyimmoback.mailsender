@@ -1,61 +1,78 @@
 package com.easyimmo.mailsender.presentation.mail.dto;
 
-import com.easyimmo.mailsender.presentation.contact.dto.CreateContactRequest;
-import com.easyimmo.mailsender.infra.emailtemplate.EmailTemplateEntity;
-
 public class AutoEmailDto {
 
     private Integer id;
     private String fromAdress;
-    private EmailTemplateEntity emailTemplateEntity;
-    private CreateContactRequest contact;
+    private Integer emailTemplateId;
+    private String contactEmailAddress;
     private Integer userId;
 
-    public AutoEmailDto(Integer id, String fromAdress, EmailTemplateEntity emailTemplateEntity, CreateContactRequest contact, Integer userId) {
-        this.id = id;
-        this.fromAdress = fromAdress;
-        this.emailTemplateEntity = emailTemplateEntity;
-        this.contact = contact;
-        this.userId = userId;
+    private AutoEmailDto(Builder builder) {
+        id = builder.id;
+        fromAdress = builder.fromAdress;
+        emailTemplateId = builder.emailTemplateId;
+        contactEmailAddress = builder.contactEmailAddress;
+        userId = builder.userId;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getFromAdress() {
         return fromAdress;
     }
 
-    public void setFromAdress(String fromAdress) {
-        this.fromAdress = fromAdress;
+    public Integer getEmailTemplateId() {
+        return emailTemplateId;
     }
 
-    public EmailTemplateEntity getEmailTemplate() {
-        return emailTemplateEntity;
-    }
-
-    public void setEmailTemplate(EmailTemplateEntity emailTemplateEntity) {
-        this.emailTemplateEntity = emailTemplateEntity;
-    }
-
-    public CreateContactRequest getContact() {
-        return contact;
-    }
-
-    public void setContact(CreateContactRequest contact) {
-        this.contact = contact;
+    public String getContactEmailAddress() {
+        return contactEmailAddress;
     }
 
     public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public static final class Builder {
+        private Integer id;
+        private String fromAdress;
+        private Integer emailTemplateId;
+        private String contactEmailAddress;
+        private Integer userId;
+
+        public Builder() {
+        }
+
+        public Builder withId(Integer val) {
+            id = val;
+            return this;
+        }
+
+        public Builder withFromAdress(String val) {
+            fromAdress = val;
+            return this;
+        }
+
+        public Builder withEmailTemplateId(Integer val) {
+            emailTemplateId = val;
+            return this;
+        }
+
+        public Builder withContactEmailAddress(String val) {
+            contactEmailAddress = val;
+            return this;
+        }
+
+        public Builder withUserId(Integer val) {
+            userId = val;
+            return this;
+        }
+
+        public AutoEmailDto build() {
+            return new AutoEmailDto(this);
+        }
     }
 }

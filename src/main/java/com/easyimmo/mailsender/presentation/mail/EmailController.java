@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.easyimmo.mailsender.domain.mail.EmailService;
 import com.easyimmo.mailsender.presentation.mail.dto.AutoEmailDto;
-import com.easyimmo.mailsender.presentation.mail.dto.CreateAutoEmailRequestDto;
 import com.easyimmo.mailsender.presentation.mail.dto.EmailDto;
 
 @RestController
@@ -27,11 +25,6 @@ public class EmailController {
         this.emailService = emailService;
     }
 
-    @GetMapping("/helloWorld") //TODO DELETE
-    public ResponseEntity<String> helloWorld(){
-        return ResponseEntity.ok("Hello world");
-    }
-
     //TODO LOGS
     @PostMapping("/email/send")
     public ResponseEntity<String> send(@RequestBody EmailDto emailDto) {
@@ -40,10 +33,10 @@ public class EmailController {
     }
 
 
-    @PostMapping("/add")
-    public ResponseEntity<AutoEmailDto> addAutoEmail(@RequestBody CreateAutoEmailRequestDto createAutoEmailRequestDto){
-        logger.info("request received at /autoemail/add for to address : {}", createAutoEmailRequestDto.getEmailAdress());
-        emailService.addAutoEmail(EmailMapper.toAutoEmailBody(createAutoEmailRequestDto));
+    @PostMapping("/auto-email/send")
+    public ResponseEntity<AutoEmailDto> sendAutoEmail(@RequestBody AutoEmailDto autoEmailDto){
+        logger.info("request received at /autoemail/add for to address : {}", autoEmailDto.getContactEmailAddress());
+        emailService.sendAutoEmail(EmailMapper.toAutoEmail(autoEmailDto));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

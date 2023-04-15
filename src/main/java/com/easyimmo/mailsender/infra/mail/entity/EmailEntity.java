@@ -1,6 +1,5 @@
 package com.easyimmo.mailsender.infra.mail.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class EmailEntity {

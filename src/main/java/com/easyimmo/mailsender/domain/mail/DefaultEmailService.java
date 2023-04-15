@@ -3,7 +3,6 @@ package com.easyimmo.mailsender.domain.mail;
 import org.springframework.stereotype.Service;
 
 import com.easyimmo.mailsender.domain.mail.model.AutoEmail;
-import com.easyimmo.mailsender.domain.mail.model.CreateAutoEmailRequest;
 import com.easyimmo.mailsender.domain.mail.model.Email;
 
 @Service
@@ -25,8 +24,4 @@ public class DefaultEmailService implements EmailService {
         emailAdapter.sendAutoEmail(autoEmail);
     }
 
-    @Override
-    public void addAutoEmail(CreateAutoEmailRequest createAutoEmailRequest) {
-        //TODO IMPLEMENT & USE AUTO EMAIL INSTEAD
-    }
 }
