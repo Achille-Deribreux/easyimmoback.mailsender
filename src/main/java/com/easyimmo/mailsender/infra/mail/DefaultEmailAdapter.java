@@ -2,6 +2,7 @@ package com.easyimmo.mailsender.infra.mail;
 
 import org.springframework.stereotype.Component;
 
+import com.easyimmo.mailsender.domain.mail.EmailAdapter;
 import com.easyimmo.mailsender.domain.mail.model.AutoEmail;
 import com.easyimmo.mailsender.domain.mail.model.Email;
 import com.easyimmo.mailsender.infra.mail.entity.EmailEntity;

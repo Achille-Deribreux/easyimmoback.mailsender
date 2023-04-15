@@ -4,8 +4,8 @@ import com.easyimmo.mailsender.presentation.mail.dto.AutoEmailDto;
 import com.easyimmo.mailsender.infra.mail.entity.AutoEmailEntity;
 import com.easyimmo.mailsender.contact.dto.ContactDto;
 import com.easyimmo.mailsender.contact.model.Contact;
-import com.easyimmo.mailsender.emailtemplate.dto.EmailTemplateDto;
-import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;
+import com.easyimmo.mailsender.presentation.mailtemplate.dto.CreateEmailTemplateRequest;
+import com.easyimmo.mailsender.infra.emailtemplate.EmailTemplateEntity;
 
 public class Converter {
 
@@ -51,21 +51,21 @@ public class Converter {
         );
     }
 
-    public static EmailTemplateDto convertToEmailTemplateDto(EmailTemplate emailTemplate){
-        return new EmailTemplateDto(
-                emailTemplate.getId(),
-                emailTemplate.getSubject(),
-                emailTemplate.getContent(),
-                emailTemplate.getUserId()
+    public static CreateEmailTemplateRequest convertToEmailTemplateDto(EmailTemplateEntity emailTemplateEntity){
+        return new CreateEmailTemplateRequest(
+                emailTemplateEntity.getId(),
+                emailTemplateEntity.getSubject(),
+                emailTemplateEntity.getContent(),
+                emailTemplateEntity.getUserId()
         );
     }
 
-    public static EmailTemplate convertToEmailTemplate(EmailTemplateDto emailTemplateDto){
-        return new EmailTemplate(
-                emailTemplateDto.getId(),
-                emailTemplateDto.getSubject(),
-                emailTemplateDto.getContent(),
-                emailTemplateDto.getUserId()
+    public static EmailTemplateEntity convertToEmailTemplate(CreateEmailTemplateRequest createEmailTemplateRequest){
+        return new EmailTemplateEntity(
+                createEmailTemplateRequest.getId(),
+                createEmailTemplateRequest.getSubject(),
+                createEmailTemplateRequest.getContent(),
+                createEmailTemplateRequest.getUserId()
         );
     }
 }

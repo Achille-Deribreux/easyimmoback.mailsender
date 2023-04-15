@@ -1,8 +1,8 @@
-package com.easyimmo.mailsender.emailtemplate.service;
+package com.easyimmo.mailsender.domain.emailtemplate;
 
-import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;
+import com.easyimmo.mailsender.domain.emailtemplate.model.EmailTemplate;
 
-public interface IEmailTemplateService {
+public interface EmailTemplateService {
 
     /**
      * Method which create an emailTemplate

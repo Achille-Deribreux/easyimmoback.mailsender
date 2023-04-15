@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.infra.mail;
+package com.easyimmo.mailsender.domain.mail;
 
 import com.easyimmo.mailsender.domain.mail.model.AutoEmail;
 import com.easyimmo.mailsender.domain.mail.model.Email;

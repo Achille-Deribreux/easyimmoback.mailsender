@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.easyimmo.mailsender.contact.model.Contact;
-import com.easyimmo.mailsender.emailtemplate.model.EmailTemplate;
+import com.easyimmo.mailsender.infra.emailtemplate.EmailTemplateEntity;
 
 @Entity
 @Table(name = "autoemail", schema = "MAILSENDER")
@@ -25,7 +25,7 @@ public class AutoEmailEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="emailTemplate_id", referencedColumnName = "id")
-    private EmailTemplate emailTemplate;
+    private EmailTemplateEntity emailTemplateEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="contact_id", referencedColumnName = "id")
@@ -37,10 +37,10 @@ public class AutoEmailEntity {
     public AutoEmailEntity() {
     }
 
-    public AutoEmailEntity(Integer id, String fromAdress, EmailTemplate emailTemplate, Contact contact, Integer userId) {
+    public AutoEmailEntity(Integer id, String fromAdress, EmailTemplateEntity emailTemplateEntity, Contact contact, Integer userId) {
         this.id = id;
         this.fromAdress = fromAdress;
-        this.emailTemplate = emailTemplate;
+        this.emailTemplateEntity = emailTemplateEntity;
         this.contact = contact;
         this.userId = userId;
     }
@@ -61,12 +61,12 @@ public class AutoEmailEntity {
         this.fromAdress = fromAdress;
     }
 
-    public EmailTemplate getEmailTemplate() {
-        return emailTemplate;
+    public EmailTemplateEntity getEmailTemplate() {
+        return emailTemplateEntity;
     }
 
-    public void setEmailTemplate(EmailTemplate emailTemplate) {
-        this.emailTemplate = emailTemplate;
+    public void setEmailTemplate(EmailTemplateEntity emailTemplateEntity) {
+        this.emailTemplateEntity = emailTemplateEntity;
     }
 
     public Contact getContact() {

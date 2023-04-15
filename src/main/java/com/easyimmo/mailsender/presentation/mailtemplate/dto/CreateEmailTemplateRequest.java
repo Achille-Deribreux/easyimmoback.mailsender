@@ -1,32 +1,14 @@
-package com.easyimmo.mailsender.emailtemplate.model;
+package com.easyimmo.mailsender.presentation.mailtemplate.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class CreateEmailTemplateRequest {
 
-@Entity
-@Table(name = "emailtemplate", schema = "MAILSENDER")
-public class EmailTemplate {
-
-    @Id
-    @Column(name = "id")
     private Integer id;
-
-    @Column(name = "subject")
     private String subject;
-
-    @Column(name="content")
     private String content;
 
-    @Column(name = "userId")
     private Integer userId;
 
-
-    public EmailTemplate() {
-    }
-
-    public EmailTemplate(Integer id, String subject, String content, Integer userId) {
+    public CreateEmailTemplateRequest(Integer id, String subject, String content, Integer userId) {
         this.id = id;
         this.subject = subject;
         this.content = content;
