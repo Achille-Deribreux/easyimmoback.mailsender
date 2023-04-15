@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.easyimmo.mailsender.contact.model.Contact;
+import com.easyimmo.mailsender.infra.contact.ContactEntity;
 import com.easyimmo.mailsender.infra.emailtemplate.EmailTemplateEntity;
 
 @Entity
@@ -29,7 +29,7 @@ public class AutoEmailEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="contact_id", referencedColumnName = "id")
-    private Contact contact;
+    private ContactEntity contactEntity;
 
     @Column(name = "userId")
     private Integer userId;
@@ -37,11 +37,11 @@ public class AutoEmailEntity {
     public AutoEmailEntity() {
     }
 
-    public AutoEmailEntity(Integer id, String fromAdress, EmailTemplateEntity emailTemplateEntity, Contact contact, Integer userId) {
+    public AutoEmailEntity(Integer id, String fromAdress, EmailTemplateEntity emailTemplateEntity, ContactEntity contactEntity, Integer userId) {
         this.id = id;
         this.fromAdress = fromAdress;
         this.emailTemplateEntity = emailTemplateEntity;
-        this.contact = contact;
+        this.contactEntity = contactEntity;
         this.userId = userId;
     }
 
@@ -69,12 +69,12 @@ public class AutoEmailEntity {
         this.emailTemplateEntity = emailTemplateEntity;
     }
 
-    public Contact getContact() {
-        return contact;
+    public ContactEntity getContact() {
+        return contactEntity;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setContact(ContactEntity contactEntity) {
+        this.contactEntity = contactEntity;
     }
 
     public Integer getUserId() {

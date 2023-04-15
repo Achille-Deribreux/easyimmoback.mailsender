@@ -1,9 +1,6 @@
-package com.easyimmo.mailsender.contact.dto;
+package com.easyimmo.mailsender.presentation.contact.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
-public class ContactDto {
+public class CreateContactRequest {
 
     private Integer id;
     private String name;
@@ -12,10 +9,10 @@ public class ContactDto {
 
     private Integer userId;
 
-    public ContactDto() {
+    public CreateContactRequest() {
     }
 
-    public ContactDto(Integer id, String name, String function, String emailAdress, Integer userId) {
+    public CreateContactRequest(Integer id, String name, String function, String emailAdress, Integer userId) {
         this.id = id;
         this.name = name;
         this.function = function;

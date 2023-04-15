@@ -1,6 +1,6 @@
 package com.easyimmo.mailsender.presentation.mail.dto;
 
-import com.easyimmo.mailsender.contact.dto.ContactDto;
+import com.easyimmo.mailsender.presentation.contact.dto.CreateContactRequest;
 import com.easyimmo.mailsender.infra.emailtemplate.EmailTemplateEntity;
 
 public class AutoEmailDto {
@@ -8,10 +8,10 @@ public class AutoEmailDto {
     private Integer id;
     private String fromAdress;
     private EmailTemplateEntity emailTemplateEntity;
-    private ContactDto contact;
+    private CreateContactRequest contact;
     private Integer userId;
 
-    public AutoEmailDto(Integer id, String fromAdress, EmailTemplateEntity emailTemplateEntity, ContactDto contact, Integer userId) {
+    public AutoEmailDto(Integer id, String fromAdress, EmailTemplateEntity emailTemplateEntity, CreateContactRequest contact, Integer userId) {
         this.id = id;
         this.fromAdress = fromAdress;
         this.emailTemplateEntity = emailTemplateEntity;
@@ -43,11 +43,11 @@ public class AutoEmailDto {
         this.emailTemplateEntity = emailTemplateEntity;
     }
 
-    public ContactDto getContact() {
+    public CreateContactRequest getContact() {
         return contact;
     }
 
-    public void setContact(ContactDto contact) {
+    public void setContact(CreateContactRequest contact) {
         this.contact = contact;
     }
 
