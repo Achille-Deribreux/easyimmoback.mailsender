@@ -20,7 +20,7 @@ public class EmailTemplateEntity {
     private String content;
 
     @Column(name = "userId")
-    private Integer userId;
+    private String userId;
 
 
     public EmailTemplateEntity() {
@@ -45,7 +45,7 @@ public class EmailTemplateEntity {
         return content;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -54,7 +54,7 @@ public class EmailTemplateEntity {
         private Integer id;
         private String subject;
         private String content;
-        private Integer userId;
+        private String userId;
 
         public Builder() {
         }
@@ -74,7 +74,7 @@ public class EmailTemplateEntity {
             return this;
         }
 
-        public Builder withUserId(Integer val) {
+        public Builder withUserId(String val) {
             userId = val;
             return this;
         }
