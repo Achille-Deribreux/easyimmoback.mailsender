@@ -2,10 +2,10 @@ package com.easyimmo.mailsender.domain.emailtemplate.model;
 
 public class EmailTemplate {
 
-    private Integer id;
-    private String subject;
-    private String content;
-    private Integer userId;
+    private final Integer id;
+    private final String subject;
+    private final String content;
+    private final String userId;
 
     private EmailTemplate(Builder builder) {
         id = builder.id;
@@ -26,7 +26,7 @@ public class EmailTemplate {
         return content;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -35,7 +35,7 @@ public class EmailTemplate {
         private Integer id;
         private String subject;
         private String content;
-        private Integer userId;
+        private String userId;
 
         public Builder() {
         }
@@ -55,7 +55,7 @@ public class EmailTemplate {
             return this;
         }
 
-        public Builder withUserId(Integer val) {
+        public Builder withUserId(String val) {
             userId = val;
             return this;
         }

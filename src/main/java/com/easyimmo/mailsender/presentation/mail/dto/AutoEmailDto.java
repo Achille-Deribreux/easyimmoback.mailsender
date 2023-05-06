@@ -2,11 +2,13 @@ package com.easyimmo.mailsender.presentation.mail.dto;
 
 public class AutoEmailDto {
 
-    private Integer id;
+    private Integer id; //todo remove
     private String fromAdress;
     private Integer emailTemplateId;
     private String contactEmailAddress;
-    private Integer userId;
+    private Integer userId; //todo remove
+
+    //todo for autoemail, add a map which will replace placeholders with values
 
     private AutoEmailDto(Builder builder) {
         id = builder.id;

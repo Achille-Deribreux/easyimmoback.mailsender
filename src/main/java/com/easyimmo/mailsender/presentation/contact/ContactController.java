@@ -1,7 +1,7 @@
 package com.easyimmo.mailsender.presentation.contact;
 
 
-import com.easyimmo.mailsender.domain.contact.DefaultContactService;
+import com.easyimmo.mailsender.domain.contact.ContactService;
 import com.easyimmo.mailsender.presentation.contact.dto.CreateContactRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +18,9 @@ public class ContactController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final DefaultContactService contactService;
+    private final ContactService contactService;
 
-    public ContactController(DefaultContactService contactService) {
+    public ContactController(ContactService contactService) {
         this.contactService = contactService;
     }
 

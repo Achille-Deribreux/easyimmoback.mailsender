@@ -8,9 +8,9 @@ public class EmailTemplateMapper {
     private EmailTemplateMapper() {
     }
 
-    public static EmailTemplate toEmailTemplate(CreateEmailTemplateRequest createEmailTemplateRequest){
+    public static EmailTemplate toEmailTemplate(String userId, CreateEmailTemplateRequest createEmailTemplateRequest){
         return new EmailTemplate.Builder()
-                .withUserId(createEmailTemplateRequest.getUserId())
+                .withUserId(userId)
                 .withSubject(createEmailTemplateRequest.getSubject())
                 .withContent(createEmailTemplateRequest.getContent())
                 .build();

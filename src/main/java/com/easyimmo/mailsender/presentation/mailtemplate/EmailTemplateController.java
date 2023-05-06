@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.easyimmo.mailsender.domain.emailtemplate.DefaultEmailTemplateService;
+import com.easyimmo.mailsender.domain.emailtemplate.EmailTemplateService;
+import com.easyimmo.mailsender.infra.util.UserUtil;
 import com.easyimmo.mailsender.presentation.mailtemplate.dto.CreateEmailTemplateRequest;
 
 @RestController
@@ -18,16 +19,17 @@ public class EmailTemplateController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final DefaultEmailTemplateService defaultEmailTemplateService;
+    private final EmailTemplateService emailTemplateService;
 
-    public EmailTemplateController(DefaultEmailTemplateService defaultEmailTemplateService) {
-        this.defaultEmailTemplateService = defaultEmailTemplateService;
+    public EmailTemplateController(EmailTemplateService emailTemplateService) {
+        this.emailTemplateService = emailTemplateService;
     }
 
     @PostMapping("/add")
     public ResponseEntity<Void> addEmailTemplateDto(@RequestBody CreateEmailTemplateRequest createEmailTemplateRequest){
-        logger.info("post request received at /emailtemplate/add to add an email template for user id : {}", createEmailTemplateRequest.getUserId());
-        defaultEmailTemplateService.addEmailTemplate(EmailTemplateMapper.toEmailTemplate(createEmailTemplateRequest));
+        String userId = UserUtil.getCurrentUserId();
+        logger.info("post request received at /emailtemplate/add to add an email template for user id : {}", userId);
+        emailTemplateService.addEmailTemplate(EmailTemplateMapper.toEmailTemplate(userId, createEmailTemplateRequest));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
