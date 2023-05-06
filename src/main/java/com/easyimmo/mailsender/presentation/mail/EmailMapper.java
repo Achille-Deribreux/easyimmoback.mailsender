@@ -2,6 +2,7 @@ package com.easyimmo.mailsender.presentation.mail;
 
 import com.easyimmo.mailsender.domain.mail.model.AutoEmail;
 import com.easyimmo.mailsender.domain.mail.model.Email;
+import com.easyimmo.mailsender.domain.mail.model.MailStatus;
 import com.easyimmo.mailsender.presentation.mail.dto.AutoEmailDto;
 import com.easyimmo.mailsender.presentation.mail.dto.EmailDto;
 
@@ -11,11 +12,12 @@ public class EmailMapper {
     }
 
     public static Email toEmail(EmailDto emailDto){
-        return new Email.EmailBuilder()
+        return new Email.Builder()
                 .withFrom(emailDto.getFrom())
                 .withTo(emailDto.getTo())
                 .withSubject(emailDto.getSubject())
                 .withText(emailDto.getText())
+                .withMailStatus(MailStatus.TO_SEND)
                 .build();
     }
 

@@ -1,5 +1,7 @@
 package com.easyimmo.mailsender.domain.mail.model;
 
+import java.time.LocalDateTime;
+
 public class Email {
 
     private String to;
@@ -7,63 +9,111 @@ public class Email {
     private String subject;
     private String text;
 
+    private MailStatus mailStatus;
+
+    private LocalDateTime sentTime;
+
+    private Email(Builder builder) {
+        setTo(builder.to);
+        setFrom(builder.from);
+        setSubject(builder.subject);
+        setText(builder.text);
+        setMailStatus(builder.mailStatus);
+        setSentTime(builder.sentTime);
+    }
+
     public String getTo() {
         return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
     }
 
     public String getFrom() {
         return from;
     }
 
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
     public String getSubject() {
         return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public String getText() {
         return text;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
 
-    public static final class EmailBuilder {
+    public MailStatus getMailStatus() {
+        return mailStatus;
+    }
+
+    public void setMailStatus(MailStatus mailStatus) {
+        this.mailStatus = mailStatus;
+    }
+
+    public LocalDateTime getSentTime() {
+        return sentTime;
+    }
+
+    public void setSentTime(LocalDateTime sentTime) {
+        this.sentTime = sentTime;
+    }
+
+
+    public static final class Builder {
         private String to;
         private String from;
         private String subject;
         private String text;
+        private MailStatus mailStatus;
+        private LocalDateTime sentTime;
 
-        public EmailBuilder() {
+        public Builder() {
         }
 
-        public static EmailBuilder anEmail() {
-            return new EmailBuilder();
-        }
-
-        public EmailBuilder withTo(String to) {
-            this.to = to;
+        public Builder withTo(String val) {
+            to = val;
             return this;
         }
 
-        public EmailBuilder withFrom(String from) {
-            this.from = from;
+        public Builder withFrom(String val) {
+            from = val;
             return this;
         }
 
-        public EmailBuilder withSubject(String subject) {
-            this.subject = subject;
+        public Builder withSubject(String val) {
+            subject = val;
             return this;
         }
 
-        public EmailBuilder withText(String text) {
-            this.text = text;
+        public Builder withText(String val) {
+            text = val;
+            return this;
+        }
+
+        public Builder withMailStatus(MailStatus val) {
+            mailStatus = val;
+            return this;
+        }
+
+        public Builder withSentTime(LocalDateTime val) {
+            sentTime = val;
             return this;
         }
 
         public Email build() {
-            Email email = new Email();
-            email.from = this.from;
-            email.text = this.text;
-            email.to = this.to;
-            email.subject = this.subject;
-            return email;
+            return new Email(this);
         }
     }
 }

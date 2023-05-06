@@ -9,7 +9,7 @@ public class EmailEntity {
     private String from;
     private String subject;
     private String text;
-    private MailStatus status;
+    private MailEntityStatus status;
     private LocalDateTime sentTime;
 
     private EmailEntity(Builder builder) {
@@ -42,7 +42,7 @@ public class EmailEntity {
         return text;
     }
 
-    public MailStatus getStatus() {
+    public MailEntityStatus getStatus() {
         return status;
     }
 
@@ -57,7 +57,7 @@ public class EmailEntity {
         private String from;
         private String subject;
         private String text;
-        private MailStatus status;
+        private MailEntityStatus status;
         private LocalDateTime sentTime;
 
         public Builder() {
@@ -88,7 +88,7 @@ public class EmailEntity {
             return this;
         }
 
-        public Builder withStatus(MailStatus val) {
+        public Builder withStatus(MailEntityStatus val) {
             status = val;
             return this;
         }
