@@ -3,7 +3,6 @@ package com.easyimmo.mailsender.infra.contact;
 import org.springframework.stereotype.Component;
 
 import com.easyimmo.mailsender.domain.contact.ContactAdapter;
-import com.easyimmo.mailsender.domain.contact.ContactDbMapper;
 import com.easyimmo.mailsender.domain.contact.model.Contact;
 
 @Component

@@ -1,17 +1,33 @@
 package com.easyimmo.mailsender.domain.mail.model;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 public class AutoEmail {
     private Integer id;
-    private String fromAdress;
+    private String to;
+    private String from;
     private Integer emailTemplateId;
-    private String contactEmailAddress;
-    private Integer userId;
+    private List<PlaceHolder> subjectPlaceholders;
+    private List<PlaceHolder> contentPlaceholders;
+    private MailStatus mailStatus;
+    private LocalDateTime sentTime;
+    private String subject;
+    private String content;
+    private String userId;
+
+    public AutoEmail() {
+    }
 
     private AutoEmail(Builder builder) {
         id = builder.id;
-        fromAdress = builder.fromAdress;
+        to = builder.to;
+        from = builder.from;
         emailTemplateId = builder.emailTemplateId;
-        contactEmailAddress = builder.contactEmailAddress;
+        subjectPlaceholders = builder.subjectPlaceholders;
+        contentPlaceholders = builder.contentPlaceholders;
+        mailStatus = builder.mailStatus;
+        sentTime = builder.sentTime;
         userId = builder.userId;
     }
 
@@ -19,29 +35,66 @@ public class AutoEmail {
         return id;
     }
 
-    public String getFromAdress() {
-        return fromAdress;
+    public String getTo() {
+        return to;
+    }
+
+    public String getFrom() {
+        return from;
     }
 
     public Integer getEmailTemplateId() {
         return emailTemplateId;
     }
 
-    public String getContactEmailAddress() {
-        return contactEmailAddress;
+    public List<PlaceHolder> getSubjectPlaceholders() {
+        return subjectPlaceholders;
     }
 
-    public Integer getUserId() {
+    public List<PlaceHolder> getContentPlaceholders() {
+        return contentPlaceholders;
+    }
+
+    public MailStatus getMailStatus() {
+        return mailStatus;
+    }
+
+    public LocalDateTime getSentTime() {
+        return sentTime;
+    }
+
+    public String getUserId() {
         return userId;
     }
 
+    public String getSubject() {
+        return subject;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void buildSubjectAndContent(String subject, String content){
+        this.subject = subject;
+        this.content = content;
+    }
+
+    public void hasBeenSent(){
+        this.sentTime = LocalDateTime.now();
+        this.mailStatus = MailStatus.SENT;
+    }
 
     public static final class Builder {
         private Integer id;
-        private String fromAdress;
+        private String to;
+        private String from;
         private Integer emailTemplateId;
-        private String contactEmailAddress;
-        private Integer userId;
+        private List<PlaceHolder> subjectPlaceholders;
+        private List<PlaceHolder> contentPlaceholders;
+        private MailStatus mailStatus;
+        private LocalDateTime sentTime;
+        private String userId;
 
         public Builder() {
         }
@@ -51,8 +104,13 @@ public class AutoEmail {
             return this;
         }
 
-        public Builder withFromAdress(String val) {
-            fromAdress = val;
+        public Builder withTo(String val) {
+            to = val;
+            return this;
+        }
+
+        public Builder withFrom(String val) {
+            from = val;
             return this;
         }
 
@@ -61,12 +119,27 @@ public class AutoEmail {
             return this;
         }
 
-        public Builder withContactEmailAddress(String val) {
-            contactEmailAddress = val;
+        public Builder withSubjectPlaceholders(List<PlaceHolder> val) {
+            subjectPlaceholders = val;
             return this;
         }
 
-        public Builder withUserId(Integer val) {
+        public Builder withContentPlaceholders(List<PlaceHolder> val) {
+            contentPlaceholders = val;
+            return this;
+        }
+
+        public Builder withMailStatus(MailStatus val) {
+            mailStatus = val;
+            return this;
+        }
+
+        public Builder withSentTime(LocalDateTime val) {
+            sentTime = val;
+            return this;
+        }
+
+        public Builder withUserId(String val) {
             userId = val;
             return this;
         }

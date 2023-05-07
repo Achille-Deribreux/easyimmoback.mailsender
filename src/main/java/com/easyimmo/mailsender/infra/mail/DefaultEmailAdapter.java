@@ -32,6 +32,16 @@ public class DefaultEmailAdapter implements EmailAdapter {
         //TODO IMPLEMENT
     }
 
+    @Override
+    public void saveEmail(Email email) {
+        emailRepository.save(toEmailEntity(email));
+    }
+
+    @Override
+    public void saveAutoEmail(AutoEmail email) {
+        //TODO IMPLEMENT
+    }
+
     private EmailEntity toEmailEntity(Email email){
         return new EmailEntity.Builder()
                 .withFrom(email.getFrom())

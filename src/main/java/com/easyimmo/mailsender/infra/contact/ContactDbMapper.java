@@ -1,4 +1,4 @@
-package com.easyimmo.mailsender.domain.contact;
+package com.easyimmo.mailsender.infra.contact;
 
 import com.easyimmo.mailsender.domain.contact.model.Contact;
 import com.easyimmo.mailsender.infra.contact.ContactEntity;

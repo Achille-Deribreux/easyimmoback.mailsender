@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.easyimmo.mailsender.domain.mail.EmailService;
-import com.easyimmo.mailsender.presentation.mail.dto.AutoEmailDto;
+import com.easyimmo.mailsender.presentation.mail.dto.SendAutoEmailRequest;
 import com.easyimmo.mailsender.presentation.mail.dto.EmailDto;
 
 @RestController
@@ -34,9 +34,9 @@ public class EmailController {
 
 
     @PostMapping("/auto-email/send")
-    public ResponseEntity<AutoEmailDto> sendAutoEmail(@RequestBody AutoEmailDto autoEmailDto){
-        logger.info("request received at /autoemail/add for to address : {}", autoEmailDto.getContactEmailAddress());
-        emailService.sendAutoEmail(EmailMapper.toAutoEmail(autoEmailDto));
+    public ResponseEntity<SendAutoEmailRequest> sendAutoEmail(@RequestBody SendAutoEmailRequest sendAutoEmailRequest){
+        logger.info("request received at /autoemail/add for to address : {}", sendAutoEmailRequest.getContactEmailAddress());
+        emailService.sendAutoEmail(EmailMapper.toAutoEmail(sendAutoEmailRequest));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
