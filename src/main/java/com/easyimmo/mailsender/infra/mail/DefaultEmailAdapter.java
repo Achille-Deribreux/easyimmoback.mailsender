@@ -24,30 +24,21 @@ public class DefaultEmailAdapter implements EmailAdapter {
 
     @Override
     public void sendMail(Email email) {
-        emailSender.sendMail(toEmailEntity(email));
+        emailSender.sendMail(EmailInfraMapper.toSendEmailRequest(email));
     }
 
     @Override
     public void sendAutoEmail(AutoEmail email) {
-        //TODO IMPLEMENT
+        emailSender.sendMail(EmailInfraMapper.toSendEmailRequest(email));
     }
 
     @Override
     public void saveEmail(Email email) {
-        emailRepository.save(toEmailEntity(email));
+        emailRepository.save(EmailInfraMapper.toEmailEntity(email));
     }
 
     @Override
     public void saveAutoEmail(AutoEmail email) {
-        //TODO IMPLEMENT
-    }
-
-    private EmailEntity toEmailEntity(Email email){
-        return new EmailEntity.Builder()
-                .withFrom(email.getFrom())
-                .withTo(email.getTo())
-                .withSubject(email.getSubject())
-                .withText(email.getText())
-                .build();
+        autoEmailRepository.save(EmailInfraMapper.toAutoEmailEntity(email));
     }
 }

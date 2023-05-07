@@ -1,40 +1,40 @@
 package com.easyimmo.mailsender.domain.mail;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.easyimmo.mailsender.domain.emailtemplate.EmailTemplateService;
+import com.easyimmo.mailsender.domain.emailtemplate.model.EmailTemplate;
 import com.easyimmo.mailsender.domain.mail.model.AutoEmail;
-
 import com.easyimmo.mailsender.domain.mail.model.Email;
-import com.easyimmo.mailsender.domain.mail.model.MailStatus;
 import com.easyimmo.mailsender.domain.mail.model.PlaceHolder;
 
 @Service
 public class DefaultEmailService implements EmailService {
 
     private final EmailAdapter emailAdapter;
+    private final EmailTemplateService emailTemplateService;
 
-    public DefaultEmailService(EmailAdapter emailAdapter) {
+    public DefaultEmailService(EmailAdapter emailAdapter, EmailTemplateService emailTemplateService) {
         this.emailAdapter = emailAdapter;
+        this.emailTemplateService = emailTemplateService;
     }
 
     @Override
     public void sendEmail(Email email) {
         emailAdapter.sendMail(email);
-        email.setMailStatus(MailStatus.SENT);
-        email.setSentTime(LocalDateTime.now());
+        email.hasBeenSent();
         emailAdapter.saveEmail(email);
     }
 
     @Override
     public void sendAutoEmail(AutoEmail autoEmail) {
-        String subject = null;//TODO
-        String content = null;
+        EmailTemplate emailTemplate = emailTemplateService.getEmailTemplate(autoEmail.getEmailTemplateId());
+        String subject = replacePlaceHolders(emailTemplate.getSubject(), autoEmail.getSubjectPlaceholders());
+        String content = replacePlaceHolders(emailTemplate.getContent(), autoEmail.getContentPlaceholders());
         autoEmail.buildSubjectAndContent(subject, content);
         emailAdapter.sendAutoEmail(autoEmail);
-        //TODO same logic as email
         autoEmail.hasBeenSent();
         emailAdapter.saveAutoEmail(autoEmail);
     }

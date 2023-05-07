@@ -9,6 +9,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.easyimmo.mailsender.infra.mail.entity.EmailEntity;
+import com.easyimmo.mailsender.infra.mail.entity.SendEmailRequest;
 
 @Service
 public class EmailSender {
@@ -19,19 +20,21 @@ public class EmailSender {
         this.mailSender = mailSender;
     }
 
-    public void sendMail(EmailEntity emailEntity){
+    public void sendMail(SendEmailRequest request){
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message);
-            mimeMessageHelper.setText(emailEntity.getText());
-            mimeMessageHelper.setSubject(emailEntity.getSubject());
-            mimeMessageHelper.setFrom(emailEntity.getFrom());
-            mimeMessageHelper.setTo(emailEntity.getTo());
-            mimeMessageHelper.setReplyTo(emailEntity.getFrom());
-            message.setRecipients(Message.RecipientType.TO, emailEntity.getTo());
+            mimeMessageHelper.setText(request.getText());
+            mimeMessageHelper.setSubject(request.getSubject());
+            mimeMessageHelper.setFrom(request.getFrom());
+            mimeMessageHelper.setTo(request.getTo());
+            mimeMessageHelper.setReplyTo(request.getFrom());
+            message.setRecipients(Message.RecipientType.TO, request.getTo());
             mailSender.send(message);
         }catch (MessagingException e){
             //TODO : custom exception
         }
     }
 }
+
+

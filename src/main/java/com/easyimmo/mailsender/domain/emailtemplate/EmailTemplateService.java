@@ -10,4 +10,6 @@ public interface EmailTemplateService {
      * @return added emailTemplate, with id
      */
     EmailTemplate addEmailTemplate(EmailTemplate emailTemplate);
+
+    EmailTemplate getEmailTemplate(Integer emailTemplateId);
 }

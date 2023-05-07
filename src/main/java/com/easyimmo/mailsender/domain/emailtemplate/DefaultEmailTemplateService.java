@@ -21,4 +21,9 @@ public class DefaultEmailTemplateService implements EmailTemplateService {
         logger.info("add email template for userId : {}", emailTemplate.getUserId());
         return emailTemplateAdapter.create(emailTemplate);
     }
+
+    @Override
+    public EmailTemplate getEmailTemplate(Integer emailTemplateId) {
+        return null; //TODO
+    }
 }

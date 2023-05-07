@@ -12,6 +12,9 @@ public class EmailEntity {
     private MailEntityStatus status;
     private LocalDateTime sentTime;
 
+    public EmailEntity() {
+    }
+
     private EmailEntity(Builder builder) {
         id = builder.id;
         to = builder.to;
